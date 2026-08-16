@@ -8,15 +8,71 @@
     <style>
 
         /* =====================================================
-           GLOBAL
+           RESET
         ===================================================== */
 
-        * {
+        .services-page,
+        .services-page * {
             box-sizing: border-box;
         }
 
+
+        /* =====================================================
+           BACKGROUND
+        ===================================================== */
+
+        .services-background {
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100vh;
+
+            z-index: 0;
+
+            background-image: url("{{ asset('assets/img/backgrounds/bg-bogor.png') }}");
+
+            background-size: cover;
+
+            background-position: center center;
+
+            background-repeat: no-repeat;
+
+            background-attachment: fixed;
+
+            pointer-events: none;
+        }
+
+
+        .services-background-overlay {
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100vh;
+
+            z-index: 1;
+
+            background: rgba(255, 255, 255, 0.12);
+
+            pointer-events: none;
+        }
+
+
+        /* =====================================================
+           MAIN PAGE
+        ===================================================== */
+
         .services-page {
             position: relative;
+
+            z-index: 2;
+
+            width: 100%;
 
             min-height: 100vh;
 
@@ -34,44 +90,7 @@
 
 
         /* =====================================================
-           BACKGROUND
-        ===================================================== */
-
-        .services-background {
-            position: fixed;
-
-            inset: 0;
-
-            z-index: -10;
-
-            background-image:
-                url("/assets/img/backgrounds/bg-bogor.png");
-
-            background-size: cover;
-
-            background-position:
-                center center;
-
-            background-repeat: no-repeat;
-
-            background-attachment: fixed;
-        }
-
-
-        .services-background-overlay {
-            position: fixed;
-
-            inset: 0;
-
-            z-index: -9;
-
-            background:
-                rgba(255, 255, 255, 0.20);
-        }
-
-
-        /* =====================================================
-           BACK TO HOME
+           BACK BUTTON
         ===================================================== */
 
         .services-topbar {
@@ -88,29 +107,22 @@
 
             gap: 7px;
 
-            color:
-                #1558e8;
+            color: #1558e8;
 
-            font-size:
-                13px;
+            font-size: 13px;
 
-            font-weight:
-                500;
+            font-weight: 500;
 
-            text-decoration:
-                none;
+            text-decoration: none;
 
-            transition:
-                .2s ease;
+            transition: .2s ease;
         }
 
 
         .services-back:hover {
-            color:
-                #0d43bd;
+            color: #0d43bd;
 
-            transform:
-                translateX(-2px);
+            transform: translateX(-2px);
         }
 
 
@@ -128,51 +140,41 @@
         .services-header {
             width: 100%;
 
-            text-align: center;
+            margin: 0 auto;
 
-            margin:
-                0 auto;
+            text-align: center;
         }
 
 
         .services-title {
             margin: 0;
 
-            color:
-                #1558e8;
+            color: #1558e8;
 
             font-size:
                 clamp(36px, 4.5vw, 60px);
 
-            line-height:
-                1.08;
+            line-height: 1.08;
 
-            font-weight:
-                700;
+            font-weight: 700;
 
-            letter-spacing:
-                -2px;
+            letter-spacing: -2px;
         }
 
 
         .services-subtitle {
+            max-width: 720px;
+
             margin:
                 10px auto 0;
 
-            max-width:
-                720px;
+            color: #181818;
 
-            color:
-                #181818;
+            font-size: 13px;
 
-            font-size:
-                13px;
+            line-height: 1.5;
 
-            line-height:
-                1.5;
-
-            font-weight:
-                400;
+            font-weight: 400;
         }
 
 
@@ -199,160 +201,115 @@
             align-items: center;
 
             border:
-                1.5px solid
-                #161616;
+                1.5px solid #161616;
 
-            border-radius:
-                28px;
+            border-radius: 28px;
 
             background:
-                rgba(255, 255, 255, 0.90);
+                rgba(255, 255, 255, 0.92);
 
-            overflow:
-                hidden;
-
-            transition:
-                .2s ease;
-        }
-
-
-        .services-search:focus-within {
-            border-color:
-                #1558e8;
+            overflow: hidden;
 
             box-shadow:
-                0 0 0 4px
-                rgba(21, 88, 232, .10);
+                0 4px 15px
+                rgba(0, 0, 0, 0.04);
         }
 
 
         .services-search input {
-            flex:
-                1;
+            flex: 1;
 
-            min-width:
-                0;
+            min-width: 0;
 
-            height:
-                100%;
+            height: 100%;
 
             padding:
                 0 22px;
 
-            border:
-                0;
+            border: 0;
 
-            outline:
-                0;
+            outline: 0;
 
             background:
                 transparent;
 
-            color:
-                #222;
+            color: #222;
 
             font-family:
                 "Poppins",
                 sans-serif;
 
-            font-size:
-                12px;
+            font-size: 12px;
         }
 
 
         .services-search input::placeholder {
-            color:
-                #858995;
+            color: #858995;
         }
 
 
         .services-search-clear {
-            width:
-                40px;
+            width: 40px;
 
-            height:
-                100%;
+            height: 100%;
 
-            display:
-                flex;
+            display: flex;
 
-            align-items:
-                center;
+            align-items: center;
 
-            justify-content:
-                center;
+            justify-content: center;
 
-            border:
-                0;
+            border: 0;
 
-            background:
-                transparent;
+            background: transparent;
 
-            color:
-                #222;
+            color: #222;
 
-            cursor:
-                pointer;
+            cursor: pointer;
         }
 
 
         .services-search-clear svg {
-            width:
-                17px;
+            width: 17px;
 
-            height:
-                17px;
+            height: 17px;
         }
 
 
         .services-search-divider {
-            width:
-                1px;
+            width: 1px;
 
-            height:
-                25px;
+            height: 25px;
 
-            background:
-                #999;
+            background: #999;
         }
 
 
         .services-search-button {
-            width:
-                50px;
+            width: 50px;
 
-            height:
-                100%;
+            height: 100%;
 
-            display:
-                flex;
+            display: flex;
 
-            align-items:
-                center;
+            align-items: center;
 
-            justify-content:
-                center;
+            justify-content: center;
 
-            border:
-                0;
+            border: 0;
 
-            background:
-                transparent;
+            background: transparent;
 
-            color:
-                #111;
+            color: #111;
 
-            cursor:
-                pointer;
+            cursor: pointer;
         }
 
 
         .services-search-button svg {
-            width:
-                19px;
+            width: 19px;
 
-            height:
-                19px;
+            height: 19px;
         }
 
 
@@ -361,17 +318,13 @@
         ===================================================== */
 
         .services-filter {
-            display:
-                flex;
+            display: flex;
 
-            align-items:
-                center;
+            align-items: center;
 
-            justify-content:
-                center;
+            justify-content: center;
 
-            gap:
-                25px;
+            gap: 25px;
 
             margin:
                 0 auto 45px;
@@ -379,129 +332,112 @@
 
 
         .service-filter-button {
-            min-width:
-                110px;
+            min-width: 110px;
 
-            height:
-                28px;
+            height: 28px;
 
             padding:
                 0 16px;
 
             border:
-                1px solid
-                #111;
+                1px solid #111;
 
-            border-radius:
-                18px;
+            border-radius: 18px;
 
             background:
-                rgba(255,255,255,.80);
+                rgba(255, 255, 255, .85);
 
-            color:
-                #111;
+            color: #111;
 
             font-family:
                 "Poppins",
                 sans-serif;
 
-            font-size:
-                10px;
+            font-size: 10px;
 
-            cursor:
-                pointer;
+            cursor: pointer;
 
-            transition:
-                .2s ease;
+            transition: .2s ease;
         }
 
 
         .service-filter-button:hover {
-            border-color:
-                #1558e8;
+            border-color: #1558e8;
 
-            color:
-                #1558e8;
+            color: #1558e8;
         }
 
 
         .service-filter-button.active {
-            border-color:
-                #1558e8;
+            border-color: #1558e8;
 
-            background:
-                #1558e8;
+            background: #1558e8;
 
-            color:
-                #ffffff;
+            color: #fff;
         }
 
 
         /* =====================================================
-           SERVICES CONTAINER
+           SERVICE CONTAINER
         ===================================================== */
 
         .services-container {
             width:
                 min(1160px, 100%);
 
-            margin:
-                0 auto;
+            margin: 0 auto;
         }
 
 
         /* =====================================================
-           GRID
+           SERVICE GRID
         ===================================================== */
 
         .services-grid {
-            display:
-                grid;
+            display: grid;
 
             grid-template-columns:
                 repeat(3, minmax(0, 1fr));
 
-            gap:
-                22px;
+            gap: 22px;
         }
 
 
         /* =====================================================
-           SERVICE CARD
+           CARD
         ===================================================== */
 
         .service-card {
-            position:
-                relative;
+            position: relative;
 
-            min-height:
-                225px;
+            min-height: 225px;
 
             padding:
-                22px 23px 20px;
+                22px
+                23px
+                20px;
 
-            display:
-                flex;
+            display: flex;
 
-            flex-direction:
-                column;
+            flex-direction: column;
 
             border:
-                1.2px solid
-                #171717;
+                1.2px solid #171717;
 
-            border-radius:
-                19px;
+            border-radius: 19px;
 
             background:
-                rgba(255,255,255,.86);
+                rgba(255, 255, 255, 0.88);
 
             backdrop-filter:
                 blur(5px);
 
+            -webkit-backdrop-filter:
+                blur(5px);
+
             box-shadow:
                 0 7px 20px
-                rgba(0,0,0,.05);
+                rgba(0, 0, 0, .05);
 
             transition:
                 transform .2s ease,
@@ -515,11 +451,11 @@
                 translateY(-4px);
 
             background:
-                rgba(255,255,255,.96);
+                rgba(255, 255, 255, .96);
 
             box-shadow:
                 0 14px 28px
-                rgba(0,0,0,.11);
+                rgba(0, 0, 0, .11);
         }
 
 
@@ -528,91 +464,71 @@
         ===================================================== */
 
         .service-card-icon {
-            width:
-                30px;
+            width: 30px;
 
-            height:
-                30px;
+            height: 30px;
 
-            display:
-                flex;
+            display: flex;
 
-            align-items:
-                center;
+            align-items: center;
 
-            justify-content:
-                flex-start;
+            justify-content: flex-start;
 
-            margin-bottom:
-                10px;
+            margin-bottom: 10px;
 
-            color:
-                #111;
+            color: #111;
         }
 
 
         .service-card-icon svg {
-            width:
-                23px;
+            width: 23px;
 
-            height:
-                23px;
+            height: 23px;
 
-            stroke-width:
-                1.6;
+            stroke-width: 1.6;
         }
 
 
         /* =====================================================
-           CARD TITLE
+           TITLE
         ===================================================== */
 
         .service-card-title {
             margin:
                 0 0 8px;
 
-            color:
-                #171717;
+            color: #171717;
 
-            font-size:
-                19px;
+            font-size: 19px;
 
-            line-height:
-                1.3;
+            line-height: 1.3;
 
-            font-weight:
-                500;
+            font-weight: 500;
         }
 
 
         /* =====================================================
-           CARD DESCRIPTION
+           DESCRIPTION
         ===================================================== */
 
         .service-card-description {
-            margin:
-                0;
+            margin: 0;
 
-            color:
-                #777b8c;
+            color: #777b8c;
 
-            font-size:
-                12px;
+            font-size: 12px;
 
-            line-height:
-                1.55;
+            line-height: 1.55;
 
             display:
                 -webkit-box;
 
-            -webkit-line-clamp:
-                3;
+            -webkit-line-clamp: 3;
 
             -webkit-box-orient:
                 vertical;
 
-            overflow:
-                hidden;
+            overflow: hidden;
         }
 
 
@@ -621,17 +537,13 @@
         ===================================================== */
 
         .service-card-footer {
-            margin-top:
-                auto;
+            margin-top: auto;
 
-            padding-top:
-                17px;
+            padding-top: 17px;
 
-            display:
-                flex;
+            display: flex;
 
-            justify-content:
-                flex-end;
+            justify-content: flex-end;
         }
 
 
@@ -640,59 +552,43 @@
         ===================================================== */
 
         .service-detail-button {
-            min-width:
-                125px;
+            min-width: 125px;
 
-            height:
-                33px;
+            height: 33px;
 
-            display:
-                inline-flex;
+            display: inline-flex;
 
-            align-items:
-                center;
+            align-items: center;
 
-            justify-content:
-                center;
+            justify-content: center;
 
-            gap:
-                6px;
+            gap: 6px;
 
             padding:
                 0 14px;
 
-            border:
-                0;
+            border: 0;
 
-            border-radius:
-                18px;
+            border-radius: 18px;
 
-            background:
-                #1558e8;
+            background: #1558e8;
 
-            color:
-                #ffffff;
+            color: #fff;
 
-            text-decoration:
-                none;
+            text-decoration: none;
 
-            font-size:
-                9px;
+            font-size: 9px;
 
-            font-weight:
-                500;
+            font-weight: 500;
 
-            transition:
-                .2s ease;
+            transition: .2s ease;
         }
 
 
         .service-detail-button:hover {
-            background:
-                #0d43bd;
+            background: #0d43bd;
 
-            color:
-                #ffffff;
+            color: #fff;
 
             transform:
                 translateX(2px);
@@ -700,11 +596,9 @@
 
 
         .service-detail-button svg {
-            width:
-                14px;
+            width: 14px;
 
-            height:
-                14px;
+            height: 14px;
         }
 
 
@@ -713,39 +607,29 @@
         ===================================================== */
 
         .services-empty {
-            grid-column:
-                1 / -1;
+            grid-column: 1 / -1;
 
-            min-height:
-                220px;
+            min-height: 220px;
 
-            display:
-                flex;
+            display: flex;
 
-            align-items:
-                center;
+            align-items: center;
 
-            justify-content:
-                center;
+            justify-content: center;
 
-            text-align:
-                center;
+            text-align: center;
 
             border:
-                1px solid
-                #111;
+                1px solid #111;
 
-            border-radius:
-                20px;
+            border-radius: 20px;
 
             background:
-                rgba(255,255,255,.85);
+                rgba(255, 255, 255, .88);
 
-            color:
-                #777;
+            color: #777;
 
-            font-size:
-                13px;
+            font-size: 13px;
         }
 
 
@@ -754,14 +638,11 @@
         ===================================================== */
 
         .services-pagination {
-            display:
-                flex;
+            display: flex;
 
-            justify-content:
-                center;
+            justify-content: center;
 
-            margin-top:
-                40px;
+            margin-top: 40px;
         }
 
 
@@ -801,8 +682,7 @@
 
 
             .services-title {
-                font-size:
-                    37px;
+                font-size: 37px;
 
                 letter-spacing:
                     -1.5px;
@@ -810,50 +690,40 @@
 
 
             .services-subtitle {
-                font-size:
-                    11px;
+                font-size: 11px;
             }
 
 
             .services-search-wrapper {
-                margin-top:
-                    28px;
+                margin-top: 28px;
             }
 
 
             .services-filter {
-                gap:
-                    7px;
+                gap: 7px;
 
-                margin-bottom:
-                    30px;
+                margin-bottom: 30px;
             }
 
 
             .service-filter-button {
-                min-width:
-                    90px;
+                min-width: 90px;
 
-                padding:
-                    0 9px;
+                padding: 0 9px;
 
-                font-size:
-                    9px;
+                font-size: 9px;
             }
 
 
             .services-grid {
-                grid-template-columns:
-                    1fr;
+                grid-template-columns: 1fr;
 
-                gap:
-                    17px;
+                gap: 17px;
             }
 
 
             .service-card {
-                min-height:
-                    205px;
+                min-height: 205px;
             }
         }
 
@@ -865,20 +735,17 @@
         @media (max-width: 400px) {
 
             .services-filter {
-                flex-wrap:
-                    wrap;
+                flex-wrap: wrap;
             }
 
 
             .service-filter-button {
-                flex:
-                    1;
+                flex: 1;
             }
 
 
             .services-title {
-                font-size:
-                    32px;
+                font-size: 32px;
             }
         }
 
@@ -886,22 +753,22 @@
 
 
     <!-- =====================================================
-         PAGE
-    ====================================================== -->
+         BACKGROUND LAYER
+    ===================================================== -->
+
+    <div class="services-background"></div>
+
+    <div class="services-background-overlay"></div>
+
+
+    <!-- =====================================================
+         CONTENT
+    ===================================================== -->
 
     <div class="services-page">
 
 
-        <!-- BACKGROUND -->
-
-        <div class="services-background"></div>
-
-        <div class="services-background-overlay"></div>
-
-
-        <!-- =================================================
-             BACK
-        ================================================== -->
+        <!-- BACK TO HOME -->
 
         <div class="services-topbar">
 
@@ -921,9 +788,7 @@
         </div>
 
 
-        <!-- =================================================
-             HEADER
-        ================================================== -->
+        <!-- HEADER -->
 
         <header class="services-header">
 
@@ -939,9 +804,7 @@
         </header>
 
 
-        <!-- =================================================
-             SEARCH
-        ================================================== -->
+        <!-- SEARCH -->
 
         <div class="services-search-wrapper">
 
@@ -967,7 +830,6 @@
                         type="button"
                         class="services-search-clear"
                         onclick="clearServiceSearch()"
-                        aria-label="Hapus pencarian"
                     >
 
                         <i data-feather="x"></i>
@@ -978,7 +840,7 @@
 
                     <div
                         class="services-search-clear"
-                        style="visibility:hidden;"
+                        style="visibility: hidden;"
                     >
 
                         <i data-feather="x"></i>
@@ -994,7 +856,6 @@
                 <button
                     type="submit"
                     class="services-search-button"
-                    aria-label="Cari"
                 >
 
                     <i data-feather="search"></i>
@@ -1006,63 +867,49 @@
         </div>
 
 
-        <!-- =================================================
-             FILTER
-        ================================================== -->
+        <!-- FILTER -->
 
         <div class="services-filter">
 
-
             <button
                 type="button"
                 class="service-filter-button
-                    {{ request('kategori', 'semua') === 'semua' ? 'active' : '' }}"
+                {{ request('kategori', 'semua') === 'semua' ? 'active' : '' }}"
                 onclick="filterService('semua')"
             >
-
                 Semua Layanan
-
             </button>
 
 
             <button
                 type="button"
                 class="service-filter-button
-                    {{ request('kategori') === 'eksternal' ? 'active' : '' }}"
+                {{ request('kategori') === 'eksternal' ? 'active' : '' }}"
                 onclick="filterService('eksternal')"
             >
-
                 Eksternal
-
             </button>
 
 
             <button
                 type="button"
                 class="service-filter-button
-                    {{ request('kategori') === 'internal' ? 'active' : '' }}"
+                {{ request('kategori') === 'internal' ? 'active' : '' }}"
                 onclick="filterService('internal')"
             >
-
                 Internal
-
             </button>
-
 
         </div>
 
 
-        <!-- =================================================
-             SERVICE LIST
-        ================================================== -->
+        <!-- SERVICE LIST -->
 
         <main class="services-container">
 
             <div class="services-grid">
 
-
                 @forelse($layanan as $item)
-
 
                     <article class="service-card">
 
@@ -1094,7 +941,7 @@
                         </p>
 
 
-                        <!-- DETAIL -->
+                        <!-- BUTTON -->
 
                         <div class="service-card-footer">
 
@@ -1113,12 +960,10 @@
 
                         </div>
 
-
                     </article>
 
 
                 @empty
-
 
                     <div class="services-empty">
 
@@ -1133,6 +978,7 @@
                                 "
                             ></i>
 
+
                             <div>
                                 Layanan yang Anda cari belum tersedia.
                             </div>
@@ -1141,16 +987,12 @@
 
                     </div>
 
-
                 @endforelse
-
 
             </div>
 
 
-            <!-- =================================================
-                 PAGINATION
-            ================================================== -->
+            <!-- PAGINATION -->
 
             @if($layanan->hasPages())
 
@@ -1162,31 +1004,23 @@
 
             @endif
 
-
         </main>
-
 
     </div>
 
 
     <!-- =====================================================
-         JAVASCRIPT
-    ====================================================== -->
+         SCRIPT
+    ===================================================== -->
 
     <script>
 
-
-        /* =====================================================
-           FILTER
-        ===================================================== */
-
         function filterService(category) {
 
-            const url =
-                new URL(
-                    "{{ route('layanan.semua') }}",
-                    window.location.origin
-                );
+            const url = new URL(
+                "{{ route('layanan.semua') }}",
+                window.location.origin
+            );
 
 
             const searchInput =
@@ -1220,21 +1054,15 @@
 
             window.location.href =
                 url.toString();
-
         }
 
 
-        /* =====================================================
-           CLEAR SEARCH
-        ===================================================== */
-
         function clearServiceSearch() {
 
-            const url =
-                new URL(
-                    "{{ route('layanan.semua') }}",
-                    window.location.origin
-                );
+            const url = new URL(
+                "{{ route('layanan.semua') }}",
+                window.location.origin
+            );
 
 
             const category =
@@ -1256,21 +1084,15 @@
 
             window.location.href =
                 url.toString();
-
         }
 
-
-        /* =====================================================
-           FEATHER ICON
-        ===================================================== */
 
         document.addEventListener(
             "DOMContentLoaded",
             function () {
 
                 if (
-                    typeof feather !==
-                    "undefined"
+                    typeof feather !== "undefined"
                 ) {
 
                     feather.replace();
