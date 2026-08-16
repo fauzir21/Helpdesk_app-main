@@ -12,35 +12,34 @@
             position: relative;
             min-height: 100vh;
             width: 100%;
+
             overflow-x: hidden;
+
             color: #111;
+
             font-family:
                 "Poppins",
                 "Montserrat",
                 "Segoe UI",
                 Arial,
                 sans-serif;
-        }
 
-        /* =========================================================
-           BACKGROUND
-           ========================================================= */
-
-        .detail-background {
-            position: fixed;
-            inset: 0;
-            z-index: -10;
-
+            /*
+             * BACKGROUND LANGSUNG DI SINI
+             * Tidak menggunakan z-index negatif.
+             */
             background-image:
                 linear-gradient(
-                    rgba(255, 255, 255, 0.18),
-                    rgba(255, 255, 255, 0.18)
+                    rgba(255, 255, 255, 0.12),
+                    rgba(255, 255, 255, 0.12)
                 ),
                 url("{{ asset('assets/img/backgrounds/bg-detail.png') }}");
 
             background-size: cover;
             background-position: center top;
             background-repeat: no-repeat;
+
+            background-attachment: fixed;
         }
 
         /*
