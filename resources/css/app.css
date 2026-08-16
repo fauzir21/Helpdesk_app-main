@@ -1,0 +1,10 @@
+@import 'simple-datatables/dist/style.css';
+@import 'litepicker/dist/css/litepicker.css';
+@import '@fortawesome/fontawesome-free/css/all.css';
+
+/* 
+   Hapus @tailwind base karena Preflight-nya merusak layout Bootstrap tema.
+   Kita tetap simpan components dan utilities untuk kebutuhan kustom jika ada.
+*/
+@tailwind components;
+@tailwind utilities;
