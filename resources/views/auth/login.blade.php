@@ -1,73 +1,398 @@
 <x-auth-layout>
-    <x-slot name="title">Masuk - {{ config('app.name') }}</x-slot>
 
-    <div class="col-lg-5">
-        <!-- Basic login form-->
-        <div class="card shadow-lg border-0 rounded-lg mt-5">
-            <div class="card-header justify-content-center text-center">
-                <h3 class="fw-light my-4">Masuk ke Akun</h3>
-                <div class="small"><a href="{{ url('/') }}" class="text-primary fw-bold text-decoration-none"><i data-feather="arrow-left" class="me-1"></i> Kembali ke Beranda</a></div>
-            </div>
-            <div class="card-body">
-                <!-- Session Status -->
-                <x-auth-session-status class="mb-4" :status="session('status')" />
+    <x-slot name="title">
+        Masuk - Layanan Diskominfo Kota Bogor
+    </x-slot>
 
-                <form method="POST" action="{{ route('login') }}">
-                    @csrf
 
-                    <!-- Email Address -->
-                    <div class="mb-3">
-                        <label class="small mb-1" for="email">Email</label>
-                        <input class="form-control @error('email') is-invalid @enderror" id="email" type="email" name="email" value="{{ old('email') }}" required autofocus autocomplete="username" placeholder="Masukkan alamat email" />
-                        @error('email')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                    </div>
+    <div class="login-card">
 
-                    <!-- Password -->
-                    <div class="mb-3">
-                        <label class="small mb-1" for="password">Password</label>
-                        <input class="form-control @error('password') is-invalid @enderror" id="password" type="password" name="password" required autocomplete="current-password" placeholder="Masukkan password" />
-                        @error('password')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                    </div>
+        {{-- =====================================================
+             HEADER
+        ====================================================== --}}
 
-                    <!-- CAPTCHA -->
-                    <div class="mb-3">
-                        <label class="small mb-1" for="captcha">Captcha</label>
-                        <div class="d-flex align-items-center gap-2 mb-2">
-                            <img src="{{ route('captcha13.image') }}" alt="captcha" class="rounded border" id="captcha-img">
-                            <button type="button" class="btn btn-outline-secondary btn-sm" onclick="document.getElementById('captcha-img').src = '{{ route('captcha13.image') }}?' + Math.random();">
-                                <i data-feather="refresh-cw"></i>
-                            </button>
-                        </div>
-                        <input class="form-control @error('captcha') is-invalid @enderror" id="captcha" type="text" name="captcha" required placeholder="Masukkan kode captcha" />
-                        @error('captcha')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                    </div>
+        <div class="login-header">
 
-                    <!-- Remember Me -->
-                    <div class="mb-3">
-                        <div class="form-check">
-                            <input class="form-check-input" id="remember_me" type="checkbox" name="remember" />
-                            <label class="form-check-label" for="remember_me">Ingat Saya</label>
-                        </div>
-                    </div>
+            <img
+                src="{{ asset('assets/img/logo_kotabogor.png') }}"
+                alt="Logo Kota Bogor"
+                class="login-logo"
+            >
 
-                    <!-- Form Group (login box)-->
-                    <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                        @if (Route::has('password.request'))
-                            <a class="small text-decoration-none" href="{{ route('password.request') }}">Lupa Password?</a>
-                        @endif
-                        <button type="submit" class="btn btn-primary px-4">Masuk</button>
-                    </div>
-                </form>
-            </div>
-            <div class="card-footer text-center py-3">
-                <div class="small"><a href="{{ route('register') }}" class="text-decoration-none">Belum punya akun? Daftar sekarang!</a></div>
-            </div>
+            <h1 class="login-title">
+                Layanan Diskominfo
+                <span>Kota Bogor</span>
+            </h1>
+
+            <p class="login-subtitle">
+                Silakan masuk untuk mengakses layanan Diskominfo Kota Bogor
+            </p>
+
         </div>
+
+
+        {{-- =====================================================
+             SESSION STATUS
+        ====================================================== --}}
+
+        <x-auth-session-status
+            class="mb-3"
+            :status="session('status')"
+        />
+
+
+        {{-- =====================================================
+             LOGIN FORM
+        ====================================================== --}}
+
+        <form
+            method="POST"
+            action="{{ route('login') }}"
+            class="login-form"
+        >
+
+            @csrf
+
+
+            {{-- =================================================
+                 EMAIL
+            ================================================== --}}
+
+            <div class="login-field">
+
+                <label
+                    for="email"
+                    class="login-label"
+                >
+                    Email
+                </label>
+
+                <div class="input-wrapper">
+
+                    <i
+                        data-feather="mail"
+                        class="input-icon"
+                    ></i>
+
+                    <input
+                        id="email"
+                        type="email"
+                        name="email"
+                        value="{{ old('email') }}"
+                        required
+                        autofocus
+                        autocomplete="username"
+                        placeholder="Masukkan Email"
+                        class="login-input @error('email') is-invalid @enderror"
+                    >
+
+                </div>
+
+                @error('email')
+
+                    <div class="login-error">
+                        {{ $message }}
+                    </div>
+
+                @enderror
+
+            </div>
+
+
+            {{-- =================================================
+                 PASSWORD
+            ================================================== --}}
+
+            <div class="login-field">
+
+                <label
+                    for="password"
+                    class="login-label"
+                >
+                    Password
+                </label>
+
+                <div class="input-wrapper">
+
+                    <i
+                        data-feather="lock"
+                        class="input-icon"
+                    ></i>
+
+                    <input
+                        id="password"
+                        type="password"
+                        name="password"
+                        required
+                        autocomplete="current-password"
+                        placeholder="Masukkan Password"
+                        class="login-input @error('password') is-invalid @enderror"
+                    >
+
+                    <button
+                        type="button"
+                        class="password-toggle"
+                        id="passwordToggle"
+                        aria-label="Tampilkan password"
+                    >
+                        <i
+                            data-feather="eye"
+                            id="passwordIcon"
+                        ></i>
+                    </button>
+
+                </div>
+
+                @error('password')
+
+                    <div class="login-error">
+                        {{ $message }}
+                    </div>
+
+                @enderror
+
+            </div>
+
+
+            {{-- =================================================
+                 OPTIONS
+            ================================================== --}}
+
+            <div class="login-options">
+
+                <div class="remember-wrapper">
+
+                    <input
+                        type="checkbox"
+                        id="remember_me"
+                        name="remember"
+                        class="remember-checkbox"
+                    >
+
+                    <label
+                        for="remember_me"
+                        class="remember-label"
+                    >
+                        Ingat Saya
+                    </label>
+
+                </div>
+
+
+                @if (Route::has('password.request'))
+
+                    <a
+                        href="{{ route('password.request') }}"
+                        class="forgot-link"
+                    >
+                        Lupa Password?
+                    </a>
+
+                @endif
+
+            </div>
+
+
+            {{-- =================================================
+                 CAPTCHA
+            ================================================== --}}
+
+            <div class="captcha-section">
+
+                <label
+                    for="captcha"
+                    class="login-label"
+                >
+                    Captcha
+                </label>
+
+
+                <div class="captcha-row">
+
+                    <img
+                        src="{{ route('captcha13.image') }}"
+                        alt="Captcha"
+                        class="captcha-image"
+                        id="captcha-img"
+                    >
+
+
+                    <button
+                        type="button"
+                        class="captcha-refresh"
+                        id="captchaRefresh"
+                        title="Refresh Captcha"
+                    >
+
+                        <i data-feather="refresh-cw"></i>
+
+                    </button>
+
+                </div>
+
+
+                <input
+                    id="captcha"
+                    type="text"
+                    name="captcha"
+                    required
+                    placeholder="Masukkan Captcha"
+                    class="login-input captcha-input @error('captcha') is-invalid @enderror"
+                >
+
+
+                @error('captcha')
+
+                    <div class="login-error">
+                        {{ $message }}
+                    </div>
+
+                @enderror
+
+            </div>
+
+
+            {{-- =================================================
+                 LOGIN BUTTON
+            ================================================== --}}
+
+            <button
+                type="submit"
+                class="login-button"
+            >
+                Masuk
+            </button>
+
+        </form>
+
+
+        {{-- =====================================================
+             FOOTER
+        ====================================================== --}}
+
+        <div class="login-footer">
+
+            <a
+                href="{{ url('/') }}"
+            >
+                ←&nbsp; Kembali ke Beranda
+            </a>
+
+
+            <div>
+
+                <span class="register-text">
+                    Belum Punya Akun?
+                </span>
+
+                <a
+                    href="{{ route('register') }}"
+                    class="register-link"
+                >
+                    Daftar Sekarang
+                </a>
+
+            </div>
+
+        </div>
+
     </div>
+
+
+    {{-- =========================================================
+         JAVASCRIPT
+    ========================================================== --}}
+
+    @push('scripts')
+
+        <script>
+
+            document.addEventListener('DOMContentLoaded', function () {
+
+                /*
+                |--------------------------------------------------------------------------
+                | PASSWORD TOGGLE
+                |--------------------------------------------------------------------------
+                */
+
+                const passwordInput =
+                    document.getElementById('password');
+
+                const passwordToggle =
+                    document.getElementById('passwordToggle');
+
+                const passwordIcon =
+                    document.getElementById('passwordIcon');
+
+
+                if (passwordToggle) {
+
+                    passwordToggle.addEventListener(
+                        'click',
+                        function () {
+
+                            const isPassword =
+                                passwordInput.type === 'password';
+
+
+                            passwordInput.type =
+                                isPassword
+                                    ? 'text'
+                                    : 'password';
+
+
+                            passwordIcon.setAttribute(
+                                'data-feather',
+                                isPassword
+                                    ? 'eye-off'
+                                    : 'eye'
+                            );
+
+
+                            feather.replace();
+
+                        }
+                    );
+
+                }
+
+
+                /*
+                |--------------------------------------------------------------------------
+                | CAPTCHA REFRESH
+                |--------------------------------------------------------------------------
+                */
+
+                const captchaImage =
+                    document.getElementById('captcha-img');
+
+                const captchaRefresh =
+                    document.getElementById('captchaRefresh');
+
+
+                if (
+                    captchaImage &&
+                    captchaRefresh
+                ) {
+
+                    captchaRefresh.addEventListener(
+                        'click',
+                        function () {
+
+                            captchaImage.src =
+                                "{{ route('captcha13.image') }}"
+                                + '?'
+                                + Date.now();
+
+                        }
+                    );
+
+                }
+
+            });
+
+        </script>
+
+    @endpush
+
 </x-auth-layout>

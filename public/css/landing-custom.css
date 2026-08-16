@@ -1,0 +1,1684 @@
+/* =========================================================
+   LANDING PAGE
+   LAYANAN DISKOMINFO KOTA BOGOR
+========================================================= */
+
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+:root {
+    --bogor-blue: #1764ed;
+    --bogor-blue-dark: #0648c9;
+    --bogor-navy: #071f55;
+
+    --text-dark: #090909;
+    --text-muted: #777c91;
+
+    --white: #ffffff;
+
+    --border: rgba(20, 20, 20, 0.75);
+
+    --card-radius: 22px;
+
+    --shadow:
+        0 18px 45px rgba(24, 51, 93, 0.16);
+
+    --soft-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================================================
+   BODY
+========================================================= */
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+
+    width: 100%;
+    min-height: 100%;
+
+    font-family:
+        "Poppins",
+        "Montserrat",
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    color: var(--text-dark);
+
+    background: #eef6ff;
+}
+
+
+/* =========================================================
+   LANDING PAGE
+========================================================= */
+
+.landing-page {
+
+    position: relative;
+
+    width: 100%;
+    min-height: 100vh;
+
+    overflow-x: hidden;
+
+    isolation: isolate;
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.landing-background {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: -3;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(232, 244, 255, 0.90),
+            rgba(245, 250, 255, 0.42),
+            rgba(229, 243, 255, 0.72)
+        ),
+        url("../assets/img/backgrounds/bg-kota-bogor.png")
+        center center / cover no-repeat;
+
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Background fallback
+|--------------------------------------------------------------------------
+*/
+
+.landing-background::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.05),
+            rgba(255, 255, 255, 0.28)
+        );
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.landing-header {
+
+    position: relative;
+
+    width: 100%;
+
+    padding:
+        34px
+        6.2vw
+        0;
+}
+
+
+.landing-brand {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    text-decoration: none;
+
+    color: var(--bogor-navy);
+
+    transition:
+        transform 0.2s ease;
+}
+
+
+.landing-brand:hover {
+
+    color: var(--bogor-navy);
+
+    transform: translateY(-1px);
+
+}
+
+
+.landing-logo {
+
+    width: 60px;
+
+    height: 60px;
+
+    object-fit: contain;
+}
+
+
+.landing-brand-text {
+
+    display: flex;
+
+    flex-direction: column;
+
+    line-height: 1.08;
+
+    font-size: 17px;
+
+    font-weight: 700;
+}
+
+
+.landing-brand-text span {
+
+    color: #0a2e75;
+
+}
+
+
+.landing-brand-text strong {
+
+    color: #073d9d;
+
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.landing-main {
+
+    width: 100%;
+
+    max-width: 1320px;
+
+    margin:
+        20px
+        auto
+        0;
+
+    padding:
+        0 34px
+        34px;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.42fr)
+        minmax(390px, 0.78fr);
+
+    gap: 55px;
+
+    align-items: start;
+}
+
+
+/* =========================================================
+   LEFT
+========================================================= */
+
+.landing-left {
+
+    min-width: 0;
+
+    padding-top: 42px;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.landing-title-wrapper {
+
+    max-width: 670px;
+}
+
+
+.landing-title {
+
+    margin: 0;
+
+    font-size: clamp(
+        44px,
+        5vw,
+        76px
+    );
+
+    line-height: 0.98;
+
+    letter-spacing: -3px;
+
+    font-weight: 800;
+
+    color: #071f55;
+}
+
+
+.landing-title span {
+
+    display: block;
+
+    color: var(--bogor-blue);
+
+    margin-top: 4px;
+}
+
+
+.landing-description {
+
+    max-width: 650px;
+
+    margin:
+        22px
+        0
+        0;
+
+    font-size: 18px;
+
+    line-height: 1.48;
+
+    color: #0b0f18;
+
+    font-weight: 400;
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.landing-search-wrapper {
+
+    width: 100%;
+
+    max-width: 610px;
+
+    margin-top: 20px;
+}
+
+
+.landing-search-box {
+
+    height: 48px;
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    background: rgba(255, 255, 255, 0.95);
+
+    border: 1.4px solid #101010;
+
+    border-radius: 28px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.06);
+}
+
+
+.landing-search-box input {
+
+    flex: 1;
+
+    min-width: 0;
+
+    height: 100%;
+
+    padding:
+        0 18px;
+
+    border: 0;
+
+    outline: 0;
+
+    background: transparent;
+
+    font-size: 14px;
+
+    color: #111;
+}
+
+
+.landing-search-box input::placeholder {
+
+    color: #85899b;
+}
+
+
+.search-clear {
+
+    width: 40px;
+
+    height: 100%;
+
+    border: 0;
+
+    background: transparent;
+
+    font-size: 23px;
+
+    line-height: 1;
+
+    color: #111;
+
+    cursor: pointer;
+}
+
+
+.search-divider {
+
+    width: 1px;
+
+    height: 28px;
+
+    background: #969696;
+}
+
+
+.search-submit {
+
+    width: 55px;
+
+    height: 100%;
+
+    border: 0;
+
+    background: transparent;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    color: #111;
+
+    cursor: pointer;
+}
+
+
+.search-submit svg {
+
+    width: 20px;
+
+    height: 20px;
+}
+
+
+/* =========================================================
+   SERVICE LIST
+========================================================= */
+
+.landing-services {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 12px;
+
+    max-width: 610px;
+
+    margin-top: 10px;
+}
+
+
+/* =========================================================
+   SERVICE CARD
+========================================================= */
+
+.landing-service-card {
+
+    position: relative;
+
+    min-height: 165px;
+
+    padding:
+        13px
+        17px
+        48px;
+
+    background:
+        rgba(255, 255, 255, 0.94);
+
+    border:
+        1.4px solid #111;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 5px 14px rgba(0, 0, 0, 0.06);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.landing-service-card:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 25px rgba(0, 0, 0, 0.10);
+}
+
+
+.service-card-icon {
+
+    width: 20px;
+
+    height: 20px;
+
+    margin-bottom: 9px;
+
+    color: #151515;
+}
+
+
+.service-card-icon svg {
+
+    width: 18px;
+
+    height: 18px;
+
+    stroke-width: 1.6;
+}
+
+
+.landing-service-card h3 {
+
+    margin:
+        0
+        0
+        7px;
+
+    font-size: 16px;
+
+    line-height: 1.25;
+
+    font-weight: 500;
+
+    color: #111;
+}
+
+
+.landing-service-card p {
+
+    margin: 0;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+
+    color: #74788c;
+}
+
+
+.service-detail-button {
+
+    position: absolute;
+
+    right: 12px;
+
+    bottom: 11px;
+
+    height: 27px;
+
+    padding:
+        0
+        12px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 5px;
+
+    border-radius: 15px;
+
+    background: var(--bogor-blue);
+
+    color: #fff;
+
+    font-size: 11px;
+
+    font-weight: 500;
+
+    text-decoration: none;
+
+    transition:
+        background 0.2s ease;
+}
+
+
+.service-detail-button:hover {
+
+    background: var(--bogor-blue-dark);
+
+    color: #fff;
+}
+
+
+.service-detail-button svg {
+
+    width: 12px;
+
+    height: 12px;
+}
+
+
+/* =========================================================
+   EMPTY SERVICE
+========================================================= */
+
+.landing-empty-service {
+
+    grid-column: 1 / -1;
+
+    padding: 30px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.85);
+
+    border:
+        1px solid #aaa;
+
+    border-radius: 20px;
+}
+
+
+.landing-empty-service svg {
+
+    width: 30px;
+
+    margin-bottom: 10px;
+}
+
+
+.landing-empty-service p {
+
+    margin: 0;
+
+    color: #666;
+}
+
+
+/* =========================================================
+   BOTTOM ACTIONS
+========================================================= */
+
+.landing-action-buttons {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    max-width: 740px;
+
+    margin-top: 30px;
+}
+
+
+.landing-action-button {
+
+    min-height: 44px;
+
+    padding:
+        0 19px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 11px;
+
+    background: var(--bogor-blue);
+
+    color: #fff;
+
+    border-radius: 9px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    box-shadow:
+        0 8px 18px rgba(23, 100, 237, 0.18);
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+
+.landing-action-button:hover {
+
+    color: #fff;
+
+    background: var(--bogor-blue-dark);
+
+    transform: translateY(-2px);
+}
+
+
+.landing-action-button svg {
+
+    width: 18px;
+
+    height: 18px;
+}
+
+
+.landing-action-primary {
+
+    padding-left: 28px;
+
+    padding-right: 28px;
+}
+
+
+/* =========================================================
+   LOGIN WRAPPER
+========================================================= */
+
+.landing-login-wrapper {
+
+    width: 100%;
+
+    padding-top: 0;
+}
+
+
+/* =========================================================
+   LOGIN CARD
+========================================================= */
+
+.landing-login-card {
+
+    position: relative;
+
+    width: 100%;
+
+    min-height: 735px;
+
+    overflow: hidden;
+
+    background:
+        rgba(247, 251, 255, 0.82);
+
+    border:
+        1.4px solid #161616;
+
+    border-radius:
+        22px;
+
+    box-shadow:
+        0 16px 45px rgba(15, 46, 90, 0.18);
+
+    backdrop-filter:
+        blur(12px);
+
+    -webkit-backdrop-filter:
+        blur(12px);
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+/* =========================================================
+   LOGIN HEADER
+========================================================= */
+
+.landing-login-header {
+
+    text-align: center;
+
+    padding:
+        45px
+        25px
+        24px;
+}
+
+
+.login-welcome {
+
+    font-size: 15px;
+
+    color: #707487;
+
+    margin-bottom: 13px;
+}
+
+
+.login-brand-title {
+
+    display: flex;
+
+    flex-direction: column;
+
+    font-size: 28px;
+
+    line-height: 1.03;
+
+    font-weight: 800;
+
+    letter-spacing: -1px;
+}
+
+
+.login-brand-title span {
+
+    color: var(--bogor-blue);
+}
+
+
+.login-brand-title strong {
+
+    color: #090909;
+}
+
+
+/* =========================================================
+   ALERT
+========================================================= */
+
+.landing-alert {
+
+    margin:
+        0
+        32px
+        10px;
+
+    padding:
+        10px
+        14px;
+
+    border-radius: 9px;
+
+    font-size: 12px;
+}
+
+
+.landing-alert-success {
+
+    color: #166534;
+
+    background: #dcfce7;
+
+    border: 1px solid #86efac;
+}
+
+
+.landing-alert-error {
+
+    color: #991b1b;
+
+    background: #fee2e2;
+
+    border: 1px solid #fca5a5;
+}
+
+
+/* =========================================================
+   LOGIN FORM
+========================================================= */
+
+.landing-login-form {
+
+    width: 100%;
+
+    padding:
+        0 63px;
+
+    flex: 1;
+}
+
+
+/* =========================================================
+   INPUT
+========================================================= */
+
+.landing-input-group {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 54px;
+
+    margin-bottom: 17px;
+
+    display: flex;
+
+    align-items: center;
+
+    background:
+        rgba(255, 255, 255, 0.92);
+
+    border:
+        1.3px solid #656b76;
+
+    border-radius: 16px;
+
+    overflow: hidden;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.landing-input-group:focus-within {
+
+    border-color: var(--bogor-blue);
+
+    box-shadow:
+        0 0 0 3px rgba(23, 100, 237, 0.10);
+}
+
+
+.landing-input-icon {
+
+    width: 54px;
+
+    min-width: 54px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: #111;
+}
+
+
+.landing-input-icon svg {
+
+    width: 21px;
+
+    height: 21px;
+
+    stroke-width: 1.7;
+}
+
+
+.landing-input-group input {
+
+    flex: 1;
+
+    width: 100%;
+
+    min-width: 0;
+
+    height: 100%;
+
+    border: 0;
+
+    outline: 0;
+
+    background: transparent;
+
+    padding:
+        0 14px 0 0;
+
+    color: #111;
+
+    font-size: 14px;
+}
+
+
+.landing-input-group input::placeholder {
+
+    color: #7c8192;
+}
+
+
+.password-toggle {
+
+    width: 45px;
+
+    height: 100%;
+
+    border: 0;
+
+    background: transparent;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: #111;
+
+    cursor: pointer;
+}
+
+
+.password-toggle svg {
+
+    width: 20px;
+
+    height: 20px;
+}
+
+
+/* =========================================================
+   REMEMBER
+========================================================= */
+
+.landing-remember {
+
+    margin:
+        1px
+        0
+        19px;
+}
+
+
+.landing-checkbox-wrapper {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    font-size: 12px;
+
+    color: #222;
+
+    cursor: pointer;
+
+    user-select: none;
+}
+
+
+.landing-checkbox-wrapper input {
+
+    position: absolute;
+
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+
+.landing-checkbox {
+
+    width: 22px;
+
+    height: 22px;
+
+    border:
+        1.2px solid #333;
+
+    border-radius: 3px;
+
+    background: #fff;
+
+    position: relative;
+}
+
+
+.landing-checkbox-wrapper input:checked + .landing-checkbox {
+
+    background: var(--bogor-blue);
+
+    border-color: var(--bogor-blue);
+}
+
+
+.landing-checkbox-wrapper input:checked + .landing-checkbox::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 7px;
+
+    top: 3px;
+
+    width: 6px;
+
+    height: 11px;
+
+    border:
+        solid white;
+
+    border-width:
+        0
+        2px
+        2px
+        0;
+
+    transform:
+        rotate(45deg);
+}
+
+
+/* =========================================================
+   CAPTCHA
+========================================================= */
+
+.landing-captcha {
+
+    width: 100%;
+
+    margin-top: 3px;
+
+    margin-bottom: 12px;
+
+    display: flex;
+
+    justify-content: center;
+}
+
+
+.landing-captcha-image-wrapper {
+
+    width: 100%;
+
+    height: 80px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: rgba(255, 255, 255, 0.88);
+
+    border:
+        1.2px solid #686e7b;
+
+    border-radius: 5px;
+
+    overflow: hidden;
+}
+
+
+.landing-captcha-image-wrapper img {
+
+    max-width: 90%;
+
+    max-height: 68px;
+
+    object-fit: contain;
+}
+
+
+/* =========================================================
+   CAPTCHA INPUT
+========================================================= */
+
+.captcha-input {
+
+    height: 53px;
+
+    margin-bottom: 16px;
+
+    padding-left: 0;
+}
+
+
+.captcha-input input {
+
+    padding:
+        0 16px !important;
+}
+
+
+/* =========================================================
+   FORGOT PASSWORD
+========================================================= */
+
+.landing-forgot {
+
+    margin:
+        0
+        0
+        17px;
+
+    font-size: 12px;
+}
+
+
+.landing-forgot a {
+
+    color: #111;
+
+    text-decoration: none;
+}
+
+
+.landing-forgot a:hover {
+
+    color: var(--bogor-blue);
+
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   LOGIN BUTTON
+========================================================= */
+
+.landing-login-submit-wrapper {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    margin-bottom: 35px;
+}
+
+
+.landing-login-button {
+
+    min-width: 96px;
+
+    min-height: 40px;
+
+    padding:
+        0 22px;
+
+    border: 0;
+
+    border-radius: 6px;
+
+    background: var(--bogor-blue);
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: 500;
+
+    text-decoration: none;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 6px 15px rgba(23, 100, 237, 0.18);
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.landing-login-button:hover {
+
+    background: var(--bogor-blue-dark);
+
+    color: white;
+
+    transform: translateY(-1px);
+}
+
+
+.landing-login-button svg {
+
+    width: 16px;
+
+    height: 16px;
+}
+
+
+/* =========================================================
+   REGISTER FOOTER
+========================================================= */
+
+.landing-register-footer {
+
+    min-height: 58px;
+
+    padding:
+        0 20px;
+
+    border-top:
+        1px solid rgba(0, 0, 0, 0.22);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 4px;
+
+    background:
+        rgba(255, 255, 255, 0.40);
+
+    font-size: 14px;
+
+    color: #6e7282;
+}
+
+
+.landing-register-footer a {
+
+    color: #565a69;
+
+    text-decoration: none;
+}
+
+
+.landing-register-footer a:hover {
+
+    color: var(--bogor-blue);
+
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   AUTHENTICATED
+========================================================= */
+
+.landing-authenticated {
+
+    flex: 1;
+
+    padding:
+        40px 50px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+}
+
+
+.authenticated-icon {
+
+    width: 70px;
+
+    height: 70px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: #16a34a;
+
+    background: #dcfce7;
+
+    margin-bottom: 20px;
+}
+
+
+.authenticated-icon svg {
+
+    width: 35px;
+
+    height: 35px;
+}
+
+
+.landing-authenticated h3 {
+
+    margin:
+        0
+        0
+        8px;
+
+    font-size: 22px;
+}
+
+
+.landing-authenticated p {
+
+    color: #777;
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================================================
+   RESPONSIVE — LARGE DESKTOP
+========================================================= */
+
+@media (max-width: 1200px) {
+
+    .landing-main {
+
+        grid-template-columns:
+            minmax(0, 1.25fr)
+            minmax(360px, 0.75fr);
+
+        gap: 35px;
+    }
+
+
+    .landing-login-form {
+
+        padding-left: 42px;
+
+        padding-right: 42px;
+    }
+
+
+    .landing-title {
+
+        font-size: 58px;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+========================================================= */
+
+@media (max-width: 991px) {
+
+    .landing-header {
+
+        padding:
+            25px
+            30px
+            0;
+    }
+
+
+    .landing-main {
+
+        grid-template-columns: 1fr;
+
+        max-width: 760px;
+
+        margin-top: 15px;
+
+        gap: 35px;
+    }
+
+
+    .landing-left {
+
+        padding-top: 25px;
+    }
+
+
+    .landing-title {
+
+        font-size: clamp(
+            44px,
+            8vw,
+            64px
+        );
+    }
+
+
+    .landing-description {
+
+        max-width: 650px;
+    }
+
+
+    .landing-search-wrapper,
+    .landing-services {
+
+        max-width: 100%;
+    }
+
+
+    .landing-login-wrapper {
+
+        max-width: 560px;
+
+        width: 100%;
+
+        margin:
+            0
+            auto;
+    }
+
+
+    .landing-login-card {
+
+        min-height: auto;
+    }
+
+
+    .landing-login-form {
+
+        padding:
+            0 55px;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+    .landing-header {
+
+        padding:
+            18px
+            20px
+            0;
+    }
+
+
+    .landing-logo {
+
+        width: 48px;
+
+        height: 48px;
+    }
+
+
+    .landing-brand-text {
+
+        font-size: 14px;
+    }
+
+
+    .landing-main {
+
+        padding:
+            0 20px
+            30px;
+
+        margin-top: 0;
+    }
+
+
+    .landing-left {
+
+        padding-top: 20px;
+    }
+
+
+    .landing-title {
+
+        font-size: 43px;
+
+        letter-spacing: -1.8px;
+    }
+
+
+    .landing-description {
+
+        font-size: 15px;
+
+        line-height: 1.5;
+    }
+
+
+    .landing-search-box {
+
+        height: 46px;
+    }
+
+
+    .landing-services {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .landing-service-card {
+
+        min-height: 155px;
+    }
+
+
+    .landing-action-buttons {
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        margin-top: 20px;
+    }
+
+
+    .landing-action-button {
+
+        width: 100%;
+    }
+
+
+    .landing-login-form {
+
+        padding:
+            0 24px;
+    }
+
+
+    .landing-login-header {
+
+        padding:
+            32px
+            20px
+            22px;
+    }
+
+
+    .login-brand-title {
+
+        font-size: 25px;
+    }
+
+
+    .landing-login-card {
+
+        border-radius: 18px;
+    }
+
+
+    .landing-register-footer {
+
+        font-size: 12px;
+
+        flex-direction: column;
+
+        gap: 0;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — SMALL MOBILE
+========================================================= */
+
+@media (max-width: 390px) {
+
+    .landing-title {
+
+        font-size: 37px;
+    }
+
+
+    .landing-description {
+
+        font-size: 14px;
+    }
+
+
+    .landing-login-form {
+
+        padding:
+            0 18px;
+    }
+
+
+    .landing-input-group {
+
+        height: 51px;
+    }
+
+
+    .landing-captcha-image-wrapper {
+
+        height: 70px;
+    }
+
+}
